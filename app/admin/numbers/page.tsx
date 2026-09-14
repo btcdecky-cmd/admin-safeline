@@ -2,7 +2,7 @@ import { MoreVertical, Plus, Search } from "lucide-react";
 
 export default function AdminNumbersPage() {
   return (
-    <div className="space-y-6">
+    <div className="flex flex-col gap-6 pb-10">
       <div className="flex justify-between items-end">
         <div>
           <h1 className="text-3xl font-semibold tracking-tight text-slate-900 mb-2">Number Inventory</h1>
@@ -41,7 +41,7 @@ export default function AdminNumbersPage() {
       </div>
 
       {/* Numbers Table */}
-      <div className="bg-white rounded-3xl border border-slate-200/60 shadow-sm overflow-hidden">
+      <div className="overflow-x-auto rounded-3xl border border-slate-200/60 bg-white shadow-sm">
         <table className="w-full text-left border-collapse text-sm">
           <thead>
             <tr className="bg-[#F9F9F8] border-b border-slate-200/60">

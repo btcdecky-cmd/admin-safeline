@@ -2,7 +2,7 @@ import { Activity, AlertCircle, TrendingUp } from "lucide-react";
 
 export default function AdminProviderHealthPage() {
   return (
-    <div className="space-y-6">
+    <div className="flex flex-col gap-6 pb-10">
       <div>
         <h1 className="text-3xl font-semibold tracking-tight text-slate-900 mb-2">Provider Health</h1>
         <p className="text-slate-500">Monitor webhook delivery, API latency, and provider availability.</p>
