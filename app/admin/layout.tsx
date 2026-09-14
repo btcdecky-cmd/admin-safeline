@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Activity, Phone, List, MessageSquare, Shield, LayoutDashboard } from "lucide-react";
+import { Activity, Phone, List, MessageSquare, Shield, LayoutDashboard, WalletCards } from "lucide-react";
 
 export const metadata = {
   title: "Admin Operations",
@@ -26,6 +26,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <NavItem href="/admin/messages" icon={<MessageSquare size={18} />} label="Messages" />
             <NavItem href="/admin/provider-health" icon={<Activity size={18} />} label="Provider Health" />
             <NavItem href="/admin/audit-logs" icon={<Shield size={18} />} label="Audit Logs" />
+            <NavItem href="/admin/finance" icon={<WalletCards size={18} />} label="Finance" />
           </nav>
         </div>
 
