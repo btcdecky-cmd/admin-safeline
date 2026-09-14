@@ -1,33 +1,41 @@
 # admin-safeline
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+Production operations dashboard for [Safeline](https://github.com/btcdecky-cmd/safeline).
 
-## Built with v0
+Controls live inventory, rentals, messages, provider health, OTP sessions, finance audit, and treasury records against the Safeline API.
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
-
-[Continue working on v0 →](https://v0.app/chat/projects/prj_DtTx0SsQlbrULsag7r1TXJAtbUlu)
-
-## Getting Started
-
-First, run the development server:
+## Connect to production
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+cp .env.example .env.local
+# Point at your Safeline API
+SAFELINE_API_URL=https://api.your-safeline.com
+# Admin JWT (login on Safeline with role=admin, or first signup user)
+SAFELINE_ADMIN_TOKEN=eyJ...
+```
+
+On Safeline, set `ADMIN_EMAILS=you@company.com` or use the first registered user (auto-admin).
+
+## Admin API surface (Safeline)
+
+| Endpoint | Purpose |
+|----------|---------|
+| `GET /api/admin/ops` | KPIs, expiring rentals, failed purchases |
+| `GET /api/admin/numbers` | Inventory |
+| `GET /api/admin/rentals` | All rentals |
+| `GET /api/admin/messages` | Inbound SMS |
+| `GET /api/admin/providers` | PVAPins / 5SIM / Solana / Paystack health |
+| `GET /api/admin/audit` | Audit + ledger |
+| `GET /api/admin/otp` | OTP orchestration sessions |
+| `GET /api/admin/finance` | Treasury / profit |
+
+## Develop
+
+```bash
+pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/admin](http://localhost:3000/admin).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-## Learn More
-
-To learn more, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+UI shell is Next.js (v0). Data layer: `lib/safeline.ts` → production Safeline backend.
