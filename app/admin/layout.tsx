@@ -33,7 +33,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="pb-4">
           <div className="px-4 py-3 bg-slate-100 rounded-2xl flex flex-col gap-1 text-sm md:block">
             <span className="font-medium text-slate-900">Admin User</span>
-            <span className="text-slate-500 text-xs">ops@platform.internal</span>
+            <span className="text-slate-500 text-xs">pad239413@gmail.com</span>
           </div>
         </div>
       </aside>
